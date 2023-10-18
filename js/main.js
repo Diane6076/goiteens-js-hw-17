@@ -5,7 +5,7 @@ import users from './users.js'
 //Отримати загальну суму балансу (поле balance) всіх користувачів.
 
 const calculateTotalBalance = users => {
-  // твій код
+  
 };
 
 console.log(calculateTotalBalance(users)); // 20916
@@ -14,29 +14,30 @@ console.log(calculateTotalBalance(users)); // 20916
 //Масив імен всіх користувачів у яких є друг із зазначеним ім'ям.
 
 const getUsersWithFriend = (users, friendName) => {
-  // твій код
+ const   usersWithFriend = users.reduce((total, user) => {
+        if (user.friends.includes(friendName)) {
+            total.push(user.name);
+        };
+        return total
+    }, [])
+    return  usersWithFriend
 };
 
 console.log(getUsersWithFriend(users, 'Briana Decker')); 
-// [ 'Sharlene Bush', 'Sheree Anthony' ]
 console.log(getUsersWithFriend(users, 'Goldie Gentry'));
- // [ 'Elma Head', 'Sheree Anthony' ]
 
 //*Завдання 3
 //Масив імен (поле name) людей, відсортованих в залежності від кількості їх друзів (поле friends)
 
-const getNamesSortedByFriendsCount = users => {
-  // твій код
-};
-
+const getNamesSortedByFriendsCount = users => 
+users.sort((firstUset, secondUser) => firstUset.friends.lehgth - secondUser.friends.lehgth).map((user) => user.name);
 console.log(getNamesSortedByFriendsCount(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 
 //*Завдання 4
 //Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не має бути повторюваних умінь і вони повинні бути відсортовані в алфавітному порядку.
 
 const getSortedUniqueSkills = users => {
-  // твій код
+  
 };
 
 console.log(getSortedUniqueSkills(users));
