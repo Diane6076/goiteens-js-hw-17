@@ -5,10 +5,11 @@ import users from './users.js'
 //Отримати загальну суму балансу (поле balance) всіх користувачів.
 
 const calculateTotalBalance = users => {
-  
+  const totalBalance = users.reduce((total, user) => total + user.balance, 0)
+    return totalBalance
 };
 
-console.log(calculateTotalBalance(users)); // 20916
+console.log(calculateTotalBalance(users));
 
 //*Завдання 2
 //Масив імен всіх користувачів у яких є друг із зазначеним ім'ям.
@@ -37,7 +38,13 @@ console.log(getNamesSortedByFriendsCount(users));
 //Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не має бути повторюваних умінь і вони повинні бути відсортовані в алфавітному порядку.
 
 const getSortedUniqueSkills = users => {
-  
+  const sortedSkills = users.reduce((skills, user) => {
+  return skills.concat(user.skills);
+}, []);
+
+const uniqueSkills = [...new Set(sortedSkills)];
+return uniqueSkills.sort();
+
 };
 
 console.log(getSortedUniqueSkills(users));
